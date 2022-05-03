@@ -64,10 +64,10 @@
                     <!--Template for card data-->
                     <div v-for="note in notes" class="card card-body flashcard my-3">
                         <h4 class="text-capitalize">{{ note.question }}</h4>
-                        <a href="#" class="text-capitalize my-3 show-answer">show/hide answer</a>
-                        <h5 class="answer mb-3"> {{ note.answer }} </h5>
+                        <a @click="showAnswer(note)" href="#" class="text-capitalize my-3 show-answer">show/hide answer</a>
+                        <h5 v-if="note.display"  > {{ note.answer }} </h5>
                         <div class="flashcard-btn d-flex justify-content-between">
-                            <a href="#" id="edit-flashcard" class=" btn my-1 edit-flashcard text-uppercase"
+                            <a @click="" href="#" id="edit-flashcard" class=" btn my-1 edit-flashcard text-uppercase"
                                 data-id="">edit</a>
                             <a @click="onDelete(note)" href="#" id="delete-flashcard"
                                 class=" btn my-1 delete-flashcard text-uppercase">delete</a>

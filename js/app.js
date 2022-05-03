@@ -17,8 +17,9 @@ Vue.createApp({
             note: {
                 id: nextId++,
                 question: '',
-                answer: ''
-            }
+                answer: '',
+                display: false,
+            },            
         }
     },
     methods: {
@@ -42,6 +43,11 @@ Vue.createApp({
         // Pasar el objeto entero es gratis, hacedlo siempre. Luego ya nos quedamos con los campos que nos interesa
         onDelete(note) {
             this.notes = this.notes.filter(n => note.id != n.id)
+        },
+
+        showAnswer(note){
+        note.display = !note.display
+        console.log(this.note.display);
         }
     },
     computed:
